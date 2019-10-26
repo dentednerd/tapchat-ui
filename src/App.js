@@ -1,13 +1,26 @@
 import React, { useState, Fragment } from 'react';
-import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import { Grid, Snackbar, SnackbarContent } from '@material-ui/core';
 import TapCard from './organisms/TapCard';
 import Message from './organisms/Message';
 import Recipient from './organisms/Recipient';
 import data from './assets/data';
 
+const useStyles = makeStyles({
+	snackbar: {
+    backgroundColor: "#046B99",
+    color: "#fff",
+    fontFamily: "OpenDyslexic",
+    fontSize: "2rem",
+    borderRadius:"0.25rem"
+	}
+});
+
 function App() {
   const [msg, setMsg] = useState([]);
   const [recipient, setRecipient] = useState(null);
+  const [sent, setSent] = useState(false);
+  const classes = useStyles();
 
   const addRemovePhrase = (phrase) => {
     const index = msg.indexOf(phrase);
@@ -30,6 +43,17 @@ function App() {
     return setRecipient(null);
   }
 
+  const sendMessage = () => {
+    setSent(true);
+    setTimeout(() => {
+      setSent(false);
+    }, 3000);
+    setTimeout(() => {
+      setMsg([]);
+      setRecipient(null);
+    }, 4000);
+  }
+
   return (
     <main>
 
@@ -39,6 +63,7 @@ function App() {
             recipient={recipient}
             msg={msg}
             addRemoveRecipient={addRemoveRecipient}
+            sendMessage={sendMessage}
           />
         </section>
       )}
@@ -70,6 +95,26 @@ function App() {
           </Fragment>
         )}
       </section>
+
+      <Snackbar
+        className={classes.snackbar}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        open={sent}
+        autoHideDuration={6000}
+        ContentProps={{
+          'aria-describedby': 'message-id',
+        }}
+      >
+        <SnackbarContent
+          className={classes.snackbar}
+          aria-describedby="client-snackbar"
+          message={<span>Message sent to {recipient && recipient.name}!</span>}
+        >
+        </SnackbarContent>
+      </Snackbar>
 
     </main>
   );

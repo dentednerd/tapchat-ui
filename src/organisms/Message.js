@@ -62,7 +62,7 @@ const useStyles = makeStyles({
 		lineHeight: "3rem"
 	},
 	mobile: {
-		margin: "1.5rem 0 1rem 1.5rem",
+		margin: "1.5rem 1.5rem 1rem 1.5rem",
 		minHeight: "3rem"
 	},
 	mobrecipient: {
@@ -72,7 +72,8 @@ const useStyles = makeStyles({
 		lineHeight: "3rem",
 		marginRight: "1rem",
 		marginBottom: "1.5rem",
-		borderRadius: "0.5rem"
+		borderRadius: "0.5rem",
+		padding: "0 0.25rem"
 	},
 	mobspan: {
 		color: "#fff",
@@ -84,7 +85,7 @@ const useStyles = makeStyles({
 });
 
 const Message = (props) => {
-	const { msg, recipient, addRemoveRecipient } = props;
+	const { msg, recipient, addRemoveRecipient, sendMessage } = props;
 	const classes = useStyles();
 
 	return (
@@ -114,6 +115,7 @@ const Message = (props) => {
 					<Button
 						variant="contained"
 						className={classes.button}
+						onClick={() => sendMessage()}
 					>
 						Send
 					</Button>
@@ -133,6 +135,7 @@ const Message = (props) => {
 					<Button
 						variant="contained"
 						className={classes.button}
+						onClick={() => sendMessage()}
 					>
 						Send
 					</Button>

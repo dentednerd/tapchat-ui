@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardActionArea, CardMedia } from '@material-ui/core';
+import { Card, CardActionArea } from '@material-ui/core';
 import Emoji from 'a11y-react-emoji'
 
 const useStyles = makeStyles({
