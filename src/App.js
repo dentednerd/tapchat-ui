@@ -8,7 +8,7 @@ import data from './assets/data';
 
 const useStyles = makeStyles({
 	snackbar: {
-    backgroundColor: "#046B99",
+    backgroundColor: "#0a5",
     color: "#fff",
     fontFamily: "OpenDyslexic",
     fontSize: "2rem",
@@ -44,6 +44,7 @@ function App() {
   }
 
   const sendMessage = () => {
+    if (!msg.length) return;
     setSent(true);
     setTimeout(() => {
       setSent(false);
@@ -111,7 +112,7 @@ function App() {
         <SnackbarContent
           className={classes.snackbar}
           aria-describedby="client-snackbar"
-          message={<span>Message sent to {recipient && recipient.name}!</span>}
+          message={<span id="message-id">Message sent to {recipient && recipient.name}!</span>}
         >
         </SnackbarContent>
       </Snackbar>

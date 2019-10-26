@@ -41,7 +41,7 @@ const useStyles = makeStyles({
 		lineHeight: "2rem",
 		borderRadius: "0.5rem",
 		padding: "0.5rem",
-		backgroundColor: "#1C304A",
+		backgroundColor: "#0a5",
 		color: "#fff",
 		fontFamily: "OpenDyslexic",
 		marginBottom: "1rem"
