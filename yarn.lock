@@ -1117,6 +1117,13 @@
     prop-types "^15.7.2"
     react-transition-group "^4.3.0"
 
+"@material-ui/icons@^4.5.1":
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.5.1.tgz#6963bad139e938702ece85ca43067688018f04f8"
+  integrity sha512-YZ/BgJbXX4a0gOuKWb30mBaHaoXRqPanlePam83JQPZ/y4kl+3aW0Wv9tlR70hB5EGAkEJGW5m4ktJwMgxQAeA==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+
 "@material-ui/styles@^4.5.0":
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.5.0.tgz#4e591b8d44c7ecce318634bd8ac652499b6c277a"
@@ -1581,6 +1588,11 @@
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
+
+a11y-react-emoji@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/a11y-react-emoji/-/a11y-react-emoji-1.1.1.tgz#c1645b818d378d8c031bbffd0f023a0c78e7635b"
+  integrity sha512-VoTx3dZF2DI+4bdjq+nHVdf81TnLJ1RqhEsBtNLEY68RRiatAQguRY0TR7vdweAN5ljwB0niOugGTtfGOxzEaA==
 
 abab@^2.0.0:
   version "2.0.2"

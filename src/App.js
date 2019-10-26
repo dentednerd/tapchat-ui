@@ -1,16 +1,67 @@
-import React from 'react';
-import TapCard from './TapCard';
+import React, { useState } from 'react';
+import Grid from '@material-ui/core/Grid';
+import TapCard from './organisms/TapCard';
+import Message from './organisms/Message';
 
 function App() {
+  const [msg, setMsg] = useState([]);
+
+  const addRemovePhrase = (phrase) => {
+    const index = msg.indexOf(phrase);
+    if (index === -1) {
+      return setMsg([...msg, phrase]);
+    }
+    const newMsg = (msg) => {
+      msg.splice(index, 1);
+      return msg;
+    };
+
+    return setMsg([...newMsg(msg)]);
+  }
+
   return (
     <div>
+      
       <h1>Tapchat</h1>
-      <div className="tapboard">
-        <TapCard word="yo" />
-        <TapCard word="we" />
-        <TapCard word="are" />
-        <TapCard word="here" />
-      </div>
+
+      <Message msg={msg} />
+
+      <Grid container spacing={2}>
+
+        <Grid item xs={3}>
+          <TapCard
+            icon="💕"
+            message="I love you"
+            action={() => addRemovePhrase("I love you")}
+          />
+        </Grid>
+
+        <Grid item xs={3}>
+          <TapCard
+            icon="😄"
+            message="I'm so happy"
+            action={() => addRemovePhrase("I'm so happy")}
+          />
+        </Grid>
+
+        <Grid item xs={3}>
+          <TapCard
+            icon="🤫"
+            message="Quiet please"
+            action={() => addRemovePhrase("Quiet please")}
+          />
+        </Grid>
+
+        <Grid item xs={3}>
+          <TapCard
+            icon="🤢"
+            message="I feel sick"
+            action={() => addRemovePhrase("I feel sick")}
+          />
+        </Grid>
+      
+      </Grid>
+
     </div>
   );
 }
