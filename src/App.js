@@ -1,9 +1,10 @@
 import React, { useState, Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Snackbar, SnackbarContent } from '@material-ui/core';
+import { Grid, Snackbar, SnackbarContent, Button } from '@material-ui/core';
 import TapCard from './organisms/TapCard';
 import Message from './organisms/Message';
 import Recipient from './organisms/Recipient';
+import Login from './organisms/Login';
 import data from './assets/data';
 
 const useStyles = makeStyles({
@@ -13,10 +14,19 @@ const useStyles = makeStyles({
     fontFamily: "OpenDyslexic",
     fontSize: "2rem",
     borderRadius:"0.25rem"
-	}
+  },
+  button: {
+    backgroundColor: "#fff",
+    color: "#000",
+    fontFamily: "OpenDyslexic",
+    fontSize: "1rem",
+    borderRadius:"0.25rem",
+    marginLeft: "1rem"
+  }
 });
 
 function App() {
+  const [user, setUser] = useState(null);
   const [msg, setMsg] = useState([]);
   const [recipient, setRecipient] = useState(null);
   const [sent, setSent] = useState(false);
@@ -46,13 +56,21 @@ function App() {
   const sendMessage = () => {
     if (!msg.length) return;
     setSent(true);
-    setTimeout(() => {
-      setSent(false);
-    }, 3000);
-    setTimeout(() => {
-      setMsg([]);
-      setRecipient(null);
-    }, 4000);
+  }
+
+  const reset = () => {
+    setSent(false);
+    setMsg([]);
+    setRecipient(null);
+  }
+
+  const loginUser = (user) => {
+    return setUser(user);
+  }
+
+  const logout = () => {
+    reset();
+    return setUser(null);
   }
 
   return (
@@ -69,7 +87,11 @@ function App() {
         </section>
       )}
 
-      {!recipient && (
+      {!user && (
+        <Login loginUser={loginUser} />
+      )}
+
+      {user && !recipient && (
         <section className="start">
           <Recipient
             action={addRemoveRecipient}
@@ -113,6 +135,24 @@ function App() {
           className={classes.snackbar}
           aria-describedby="client-snackbar"
           message={<span id="message-id">Message sent to {recipient && recipient.name}!</span>}
+          action={[
+          <Button
+            className={classes.button}
+            key="reset"
+            size="small"
+            onClick={reset}
+          >
+            Start again
+          </Button>,
+          <Button
+            className={classes.button}
+            key="logout"
+            size="small"
+            onClick={logout}
+          >
+            Log out
+          </Button>
+        ]}
         >
         </SnackbarContent>
       </Snackbar>

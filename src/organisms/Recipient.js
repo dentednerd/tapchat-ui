@@ -19,7 +19,6 @@ const Recipient = (props) => {
 
 	return (
 		<Fragment>
-			<h1>Welcome to Tapchat!</h1>
 			{!recipient && <h2>Who would you like to talk to?</h2>}
 			<Grid container spacing={2} className={classes.grid} justify="space-around">
 				{contacts.map(contact => (
