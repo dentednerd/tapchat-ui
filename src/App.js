@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import Grid from '@material-ui/core/Grid';
 import TapCard from './organisms/TapCard';
 import Message from './organisms/Message';
@@ -46,22 +46,26 @@ function App() {
           recipient={recipient}
         />
 
-        {recipient && <h2>What would you like to tell {recipient}?</h2>}
+        {recipient && (
+          <Fragment>
+            <h2>What would you like to tell {recipient}?</h2>
 
-        <Grid container spacing={2}>
+            <Grid container spacing={2}>
 
-          {data.map(phrase => (
-            <Grid item xs={3} key={phrase.message}>
-              <TapCard
-                icon={phrase.icon}
-                message={phrase.message}
-                active={msg.indexOf(phrase.message) > -1}
-                action={() => addRemovePhrase(phrase.message)}
-              />
+              {data.map(phrase => (
+                <Grid item xs={3} key={phrase.message}>
+                  <TapCard
+                    icon={phrase.icon}
+                    message={phrase.message}
+                    active={msg.indexOf(phrase.message) > -1}
+                    action={() => addRemovePhrase(phrase.message)}
+                  />
+                </Grid>
+              ))}
+            
             </Grid>
-          ))}
-        
-        </Grid>
+          </Fragment>
+        )}
       </section>
 
     </main>
