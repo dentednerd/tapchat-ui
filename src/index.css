@@ -11,9 +11,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-div.tapboard {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
+section.message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  box-shadow: 1rem 1rem 1rem #eee;
+  background-color: #666;
+}
+
+section.board {
+  margin-top: 14rem;
 }

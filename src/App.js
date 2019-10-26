@@ -31,36 +31,40 @@ function App() {
   }
 
   return (
-    <div>
+    <main>
+
+      <section className="message">
+        <Message
+          recipient={recipient}
+          msg={msg}
+        />
+      </section>
       
-      <h1>Tapchat</h1>
+      <section className="board">
+        <Recipient
+          action={addRemoveRecipient}
+          recipient={recipient}
+        />
 
-      <Recipient
-        action={addRemoveRecipient}
-        recipient={recipient}
-      />
+        {recipient && <h2>What would you like to tell {recipient}?</h2>}
 
-      <Message
-        recipient={recipient}
-        msg={msg}
-      />
+        <Grid container spacing={2}>
 
-      <Grid container spacing={2}>
+          {data.map(phrase => (
+            <Grid item xs={3} key={phrase.message}>
+              <TapCard
+                icon={phrase.icon}
+                message={phrase.message}
+                active={msg.indexOf(phrase.message) > -1}
+                action={() => addRemovePhrase(phrase.message)}
+              />
+            </Grid>
+          ))}
+        
+        </Grid>
+      </section>
 
-        {data.map(phrase => (
-          <Grid item xs={3} key={phrase.message}>
-            <TapCard
-              icon={phrase.icon}
-              message={phrase.message}
-              active={msg.indexOf(phrase.message) > -1}
-              action={() => addRemovePhrase(phrase.message)}
-            />
-          </Grid>
-        ))}
-      
-      </Grid>
-
-    </div>
+    </main>
   );
 }
 

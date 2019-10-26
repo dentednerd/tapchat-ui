@@ -1,29 +1,24 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
+import { Card, CardActionArea, CardMedia } from '@material-ui/core';
 import Emoji from 'a11y-react-emoji'
 
 const useStyles = makeStyles({
   card: {
-		height: '8rem',
-		padding: '1rem',
-		textAlign: 'center',
-		backgroundColor: 'white'
+		padding: "1rem",
+		textAlign: "center",
+		backgroundColor: "white"
 	},
 	active: {
-		textAlign: 'center',
 		backgroundColor: "powderblue"
 	},
 	clickable: {
-		height: "8rem",
+		height: "10rem",
 		textAlign: "center"
 	},
 	emoji: {
-		fontSize: '4rem',
-		height: '4rem',
-		margin: 0,
-		padding: 0
+		fontSize: "4rem",
+		height: "4rem"
 	},
 	message: {
 		fontFamily: "OpenDyslexic",
@@ -31,22 +26,32 @@ const useStyles = makeStyles({
 		height: "1rem",
 		margin: 0,
 		padding: 0
+	},
+	avatar: {
+		height: "20rem"
 	}
 });
 
 const TapCard = (props) => {
-	const { icon, message, action, active } = props;
+	const { icon, message, avatar, action, active } = props;
 	const classes = useStyles();
 
 	return (
 		<Card
 			raised={!active}
-			className={classes.card, active && classes.active}
+			className={classes.card, avatar && classes.avatar, active && classes.active}
 		>
 			<CardActionArea
 				onClick={() => action()}
 				className={classes.clickable}
       >
+				{avatar && (
+					<CardMedia
+						component="img"
+						image={avatar}
+						title={message}
+					/>
+				)}
 				<Emoji className={classes.emoji} symbol={icon} label={message} />
 				<p className={classes.message}>{message}</p>
 			</CardActionArea>

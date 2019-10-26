@@ -5,10 +5,10 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles({
 	viewer: {
 		padding: "2rem",
-		width: "calc(100% - 4rem)",
+		width: "calc(100% - 8rem)",
 		borderRadius: "1rem",
 		backgroundColor: "#eee",
-		marginBottom: "2rem",
+		margin: "2rem",
 		display: "flex",
 		flexFlow: "row nowrap",
 		justifyContent: "flex-end",
@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 		borderRadius: "0.5rem",
 		padding: "0.25rem 0.5rem",
 		marginRight: "2rem",
-		backgroundColor: "#ccc"
+		backgroundColor: "#ccc",
 	},
   button: {
 		fontFamily: "OpenDyslexic",
