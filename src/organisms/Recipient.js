@@ -25,7 +25,9 @@ const Recipient = (props) => {
 				{contacts.map(contact => (
 					<Grid
 						item
-						xs={3}
+						xs={12}
+						md={4}
+						lg={3}
 						key={contact.name}
 					>
 						<ContactCard

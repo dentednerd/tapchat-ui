@@ -6,7 +6,6 @@ const useStyles = makeStyles({
   card: {
 		height: "16rem",
 		textAlign: "center",
-		backgroundColor: "white",
 		backgroundColor: "#B3EFFF"
 	},
 	clickable: {

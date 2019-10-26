@@ -13,6 +13,7 @@ body {
 
 h1 {
   font-size: 4rem;
+  line-height: 4rem;
   color: #046B99;
 }
 
@@ -34,4 +35,10 @@ section.message {
 
 section.board {
   margin-top: 14rem;
+}
+
+@media (max-width: 1024px) {
+  section.board {
+    margin-top: 8rem;
+  }
 }

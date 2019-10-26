@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardActionArea, CardMedia, Button } from '@material-ui/core';
+import { Card, CardActionArea, CardMedia, Button, Hidden } from '@material-ui/core';
 
 const useStyles = makeStyles({
 	viewer: {
@@ -60,6 +60,17 @@ const useStyles = makeStyles({
 		fontFamily: "OpenDyslexic",
 		fontSize: "1.5rem",
 		lineHeight: "3rem"
+	},
+	mobile: {
+		margin: "1.5rem 0 1rem 1.5rem",
+		minHeight: "3rem"
+	},
+	mobspan: {
+		color: "#fff",
+		fontSize: "2rem",
+		lineHeight: "3rem",
+		marginRight: "1rem",
+		marginBottom: "1.5rem",
 	}
 });
 
@@ -69,34 +80,48 @@ const Message = (props) => {
 
 	return (
 		<Fragment>
-			<div>
-				{recipient && (
-					<Card className={classes.card}>
-						<CardActionArea
-							onClick={() => addRemoveRecipient()}
-							className={classes.cardText}
-						>
-							<CardMedia
-								className={classes.cardImage}
-								component="img"
-								image={recipient.avatar}
-								title={recipient.name}
-							/>
-							{recipient.name}
-						</CardActionArea>
-					</Card>
-				)}
-			</div>
-			<div className={classes.viewer}>
-				{recipient && <span className={classes.recipient}>{recipient.name.concat(", ")}</span>}
-				{msg.map(phrase => <span key={phrase} className={classes.message}>{phrase}</span>)}
-				<Button
-					variant="contained"
-					className={classes.button}
-				>
-					Send
-				</Button>
-			</div>
+			<Hidden mdDown>
+				<div>
+					{recipient && (
+						<Card className={classes.card}>
+							<CardActionArea
+								onClick={() => addRemoveRecipient()}
+								className={classes.cardText}
+							>
+								<CardMedia
+									className={classes.cardImage}
+									component="img"
+									image={recipient.avatar}
+									title={recipient.name}
+								/>
+								{recipient.name}
+							</CardActionArea>
+						</Card>
+					)}
+				</div>
+				<div className={classes.viewer}>
+					{recipient && <span className={classes.recipient}>{recipient.name.concat(",")}</span>}
+					{msg.map(phrase => <span key={phrase} className={classes.message}>{phrase}</span>)}
+					<Button
+						variant="contained"
+						className={classes.button}
+					>
+						Send
+					</Button>
+				</div>
+			</Hidden>
+			<Hidden lgUp>
+				<section className={classes.mobile}>
+					{recipient && <span className={classes.mobspan}>{recipient.name.concat(",")}</span>}
+					{msg.map(phrase => <span key={phrase} className={classes.mobspan}>{phrase}</span>)}
+					<Button
+						variant="contained"
+						className={classes.button}
+					>
+						Send
+					</Button>
+				</section>
+			</Hidden>
 		</Fragment>
 	)
 }

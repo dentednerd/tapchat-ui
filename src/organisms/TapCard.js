@@ -5,7 +5,7 @@ import Emoji from 'a11y-react-emoji'
 
 const useStyles = makeStyles({
   card: {
-		height: "20rem",
+		height: "10rem",
 		padding: "1rem",
 		textAlign: "center",
 		backgroundColor: "white"
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 		backgroundColor: "#B3EFFF"
 	},
 	clickable: {
-		height: "20rem",
+		height: "10rem",
 		textAlign: "center"
 	},
 	emoji: {
