@@ -57,7 +57,7 @@ function App() {
           <Fragment>
             <Grid container spacing={2}>
               {data.map(phrase => (
-                <Grid item xs={12} md={3} lg={2} key={phrase.message}>
+                <Grid item xs={6} sm={4} md={3} lg={2} key={phrase.message}>
                   <TapCard
                     icon={phrase.icon}
                     message={phrase.message}

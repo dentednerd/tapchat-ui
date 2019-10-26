@@ -65,6 +65,15 @@ const useStyles = makeStyles({
 		margin: "1.5rem 0 1rem 1.5rem",
 		minHeight: "3rem"
 	},
+	mobrecipient: {
+		backgroundColor: "#fff",
+		color: "#000",
+		fontSize: "2rem",
+		lineHeight: "3rem",
+		marginRight: "1rem",
+		marginBottom: "1.5rem",
+		borderRadius: "0.5rem"
+	},
 	mobspan: {
 		color: "#fff",
 		fontSize: "2rem",
@@ -112,7 +121,14 @@ const Message = (props) => {
 			</Hidden>
 			<Hidden lgUp>
 				<section className={classes.mobile}>
-					{recipient && <span className={classes.mobspan}>{recipient.name.concat(",")}</span>}
+					{recipient && (
+						<span
+							className={classes.mobrecipient}
+							onClick={() => addRemoveRecipient()}
+						>
+							{recipient.name.concat(",")}
+						</span>
+					)}
 					{msg.map(phrase => <span key={phrase} className={classes.mobspan}>{phrase}</span>)}
 					<Button
 						variant="contained"

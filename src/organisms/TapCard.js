@@ -5,7 +5,7 @@ import Emoji from 'a11y-react-emoji'
 
 const useStyles = makeStyles({
   card: {
-		height: "10rem",
+		height: "12rem",
 		padding: "1rem",
 		textAlign: "center",
 		backgroundColor: "white"
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 		backgroundColor: "#B3EFFF"
 	},
 	clickable: {
-		height: "10rem",
+		height: "12rem",
 		textAlign: "center"
 	},
 	emoji: {
@@ -27,14 +27,11 @@ const useStyles = makeStyles({
 		height: "1rem",
 		margin: 0,
 		padding: 0
-	},
-	avatar: {
-		height: "10rem"
 	}
 });
 
 const TapCard = (props) => {
-	const { icon, message, avatar, action, active } = props;
+	const { icon, message, action, active } = props;
 	const classes = useStyles();
 
 	return (
@@ -46,14 +43,6 @@ const TapCard = (props) => {
 				onClick={() => action()}
 				className={classes.clickable}
       >
-				{avatar && (
-					<CardMedia
-						className={classes.avatar}
-						component="img"
-						image={avatar}
-						title={message}
-					/>
-				)}
 				<Emoji className={classes.emoji} symbol={icon} label={message} />
 				<p className={classes.message}>{message}</p>
 			</CardActionArea>
