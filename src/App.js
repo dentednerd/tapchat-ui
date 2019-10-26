@@ -23,7 +23,7 @@ function App() {
   }
 
   const addRemoveRecipient = (contact) => {
-    if (!recipient) {
+    if (contact !== recipient) {
       return setRecipient(contact);
     }
 
@@ -35,17 +35,24 @@ function App() {
       
       <h1>Tapchat</h1>
 
-      <Recipient action={addRemoveRecipient} />
+      <Recipient
+        action={addRemoveRecipient}
+        recipient={recipient}
+      />
 
-      <Message recipient={recipient} msg={msg} />
+      <Message
+        recipient={recipient}
+        msg={msg}
+      />
 
       <Grid container spacing={2}>
 
         {data.map(phrase => (
-          <Grid item xs={3}>
+          <Grid item xs={3} key={phrase.message}>
             <TapCard
               icon={phrase.icon}
               message={phrase.message}
+              active={msg.indexOf(phrase.message) > -1}
               action={() => addRemovePhrase(phrase.message)}
             />
           </Grid>

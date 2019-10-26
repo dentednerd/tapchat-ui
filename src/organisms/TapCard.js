@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -35,14 +35,8 @@ const useStyles = makeStyles({
 });
 
 const TapCard = (props) => {
-	const [active, isActive] = useState(false);
-	const { icon, message, action } = props;
+	const { icon, message, action, active } = props;
 	const classes = useStyles();
-
-	const whenClicked = () => {
-		isActive(!active);
-		return action();
-	}
 
 	return (
 		<Card
@@ -50,7 +44,7 @@ const TapCard = (props) => {
 			className={classes.card, active && classes.active}
 		>
 			<CardActionArea
-				onClick={whenClicked}
+				onClick={() => action()}
 				className={classes.clickable}
       >
 				<Emoji className={classes.emoji} symbol={icon} label={message} />

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import TapCard from './TapCard';
+import contacts from '../assets/contacts';
 
 const useStyles = makeStyles({
 	grid: {
-		marginBottom: "2rem"
+		margin: "0 auto 2rem"
 	},
   card: {
 		height: '8rem',
@@ -16,17 +17,20 @@ const useStyles = makeStyles({
 });
 
 const Recipient = (props) => {
-	const { action } = props;
+	const { action, recipient } = props;
 	const classes = useStyles();
 
 	return (
 		<Grid container spacing={2} className={classes.grid}>
-			<Grid item xs={3}>
-				<TapCard
-					message="Chris"
-					action={() => action("Chris")}
-				/>
-			</Grid>
+			{contacts.map(contact => (
+				<Grid item xs={3} key={contact.name}>
+					<TapCard
+						message={contact.name}
+						active={contact.name === recipient}
+						action={() => action(contact.name)}
+					/>
+				</Grid>
+			))}
 		</Grid>
 	);
 }
