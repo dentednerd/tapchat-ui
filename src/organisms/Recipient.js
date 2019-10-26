@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import TapCard from './TapCard';
+import ContactCard from './ContactCard';
 import contacts from '../assets/contacts';
 
 const useStyles = makeStyles({
 	grid: {
-		marginBottom: "2rem"
+		margin: "2rem auto"
 	},
 	hide: {
 		display: "none"
@@ -19,20 +19,18 @@ const Recipient = (props) => {
 
 	return (
 		<Fragment>
-			{!recipient && <h2>Who do you want to talk to?</h2>}
-			<Grid container spacing={2} className={classes.grid}>
+			<h1>Welcome to Tapchat!</h1>
+			{!recipient && <h2>Who would you like to talk to?</h2>}
+			<Grid container spacing={2} className={classes.grid} justify="space-around">
 				{contacts.map(contact => (
 					<Grid
 						item
 						xs={3}
 						key={contact.name}
-						className={recipient !== null && recipient !== contact.name && classes.hide}
 					>
-						<TapCard
-							message={contact.name}
-							avatar={contact.avatar}
-							active={contact.name === recipient}
-							action={() => action(contact.name)}
+						<ContactCard
+							contact={contact}
+							action={action}
 						/>
 					</Grid>
 				))}

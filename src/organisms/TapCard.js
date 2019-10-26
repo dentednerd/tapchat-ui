@@ -11,7 +11,7 @@ const useStyles = makeStyles({
 		backgroundColor: "white"
 	},
 	active: {
-		backgroundColor: "powderblue"
+		backgroundColor: "#B3EFFF"
 	},
 	clickable: {
 		height: "20rem",

@@ -23,7 +23,7 @@ function App() {
   }
 
   const addRemoveRecipient = (contact) => {
-    if (contact !== recipient) {
+    if (recipient === null) {
       return setRecipient(contact);
     }
 
@@ -33,25 +33,29 @@ function App() {
   return (
     <main>
 
-      <section className="message">
-        <Message
-          recipient={recipient}
-          msg={msg}
-        />
-      </section>
+      {recipient && (
+        <section className="message">
+          <Message
+            recipient={recipient}
+            msg={msg}
+            addRemoveRecipient={addRemoveRecipient}
+          />
+        </section>
+      )}
+
+      {!recipient && (
+        <section className="start">
+          <Recipient
+            action={addRemoveRecipient}
+            recipient={recipient}
+          />
+        </section>
+      )}
       
       <section className="board">
-        <Recipient
-          action={addRemoveRecipient}
-          recipient={recipient}
-        />
-
         {recipient && (
           <Fragment>
-            <h2>What would you like to tell {recipient}?</h2>
-
             <Grid container spacing={2}>
-
               {data.map(phrase => (
                 <Grid item xs={3} key={phrase.message}>
                   <TapCard
@@ -62,7 +66,6 @@ function App() {
                   />
                 </Grid>
               ))}
-            
             </Grid>
           </Fragment>
         )}
