@@ -16,6 +16,13 @@ const useStyles = makeStyles({
 		height: "4rem",
 		maxHeight: "4rem"
 	},
+	recipient: {
+		height: "2rem",
+		borderRadius: "0.5rem",
+		padding: "0.25rem 0.5rem",
+		marginRight: "2rem",
+		backgroundColor: "#fff"
+	},
 	message: {
 		height: "2rem",
 		borderRadius: "0.5rem",
@@ -30,11 +37,12 @@ const useStyles = makeStyles({
 });
 
 const Message = (props) => {
-	const { msg } = props;
+	const { msg, recipient } = props;
 	const classes = useStyles();
 
 	return (
 		<div className={classes.viewer}>
+			{recipient && <span className={classes.recipient}>{recipient.concat(", ")}</span>}
 			{msg.map(phrase => <span key={phrase} className={classes.message}>{phrase}</span>)}
 			<Button variant="contained" className={classes.button}>
         Send
