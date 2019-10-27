@@ -2,6 +2,7 @@
   "name": "tapchat-ui",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://dentednerd.github.io/tapchat-ui",
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.5.1",

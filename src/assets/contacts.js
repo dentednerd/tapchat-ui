@@ -5,17 +5,17 @@ import blackwidow from './blackwidow.jpg';
 export default [
 	{
 		name: "Chris",
-		number: "123",
+		number: "447578395695",
 		avatar: captainamerica
 	},
 	{
 		name: "Row",
-		number: "456",
+		number: "447843436578",
 		avatar: ironman
 	},
 	{
 		name: "Joey",
-		number: "07791351136",
+		number: "447791351136",
 		avatar: blackwidow
 	}
 ]

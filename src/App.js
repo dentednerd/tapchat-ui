@@ -70,7 +70,7 @@ function App() {
     console.log('sending message: ', msgToSend);
 
     api.post('/send', {
-      toNumber: '447791351136',
+      toNumber: recipient.number,
       content: msgToSend
     })
     .then(response => {
