@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.331030dc.chunk.css",
+    "main.js": "/static/js/main.28f556ba.chunk.js",
+    "main.js.map": "/static/js/main.28f556ba.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.60340576.js",
+    "runtime-main.js.map": "/static/js/runtime-main.60340576.js.map",
+    "static/js/2.e05e0a0b.chunk.js": "/static/js/2.e05e0a0b.chunk.js",
+    "static/js/2.e05e0a0b.chunk.js.map": "/static/js/2.e05e0a0b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.4cd8256d2feaf83ade0b7d414f139d6a.js": "/precache-manifest.4cd8256d2feaf83ade0b7d414f139d6a.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.331030dc.chunk.css.map": "/static/css/main.331030dc.chunk.css.map",
+    "static/media/index.css": "/static/media/OpenDyslexic-Regular.be1e6672.otf",
+    "static/media/blackwidow.jpg": "/static/media/blackwidow.5dc7233a.jpg",
+    "static/media/captainamerica.webp": "/static/media/captainamerica.4f13c40d.webp",
+    "static/media/ironman.jpg": "/static/media/ironman.4d4b260e.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.60340576.js",
+    "static/js/2.e05e0a0b.chunk.js",
+    "static/css/main.331030dc.chunk.css",
+    "static/js/main.28f556ba.chunk.js"
+  ]
+}
