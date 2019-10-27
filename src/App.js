@@ -12,7 +12,8 @@ const api = axios.create({
   baseURL: "http://tapchat.uksouth.cloudapp.azure.com/ipa/message",
   headers: {
     "Access-Control-Allow-Headers": "Access-Control-Allow-Origin",
-    "Access-Control-Allow-Origin": "http://localhost:3000",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json;charset=utf-8"
   }
 });
