@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from 'react';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Snackbar, SnackbarContent, Button } from '@material-ui/core';
 import TapCard from './organisms/TapCard';
@@ -6,6 +7,15 @@ import Message from './organisms/Message';
 import Recipient from './organisms/Recipient';
 import Login from './organisms/Login';
 import data from './assets/data';
+
+const api = axios.create({
+  baseURL: "http://tapchat.uksouth.cloudapp.azure.com/ipa/message",
+  headers: {
+    "Access-Control-Allow-Headers": "Access-Control-Allow-Origin",
+    "Access-Control-Allow-Origin": "http://localhost:3000",
+    "Content-Type": "application/json;charset=utf-8"
+  }
+});
 
 const useStyles = makeStyles({
 	snackbar: {
@@ -55,7 +65,21 @@ function App() {
 
   const sendMessage = () => {
     if (!msg.length) return;
-    setSent(true);
+    const msgToSend = recipient.name.concat(', ').concat(msg.join(' '));
+    console.log('sending message: ', msgToSend);
+
+    api.post('/send', {
+      toNumber: '447791351136',
+      content: msgToSend
+    })
+    .then(response => {
+      console.log(response);
+      return setSent(true);
+    })
+    .catch(error => {
+      console.log('Something went wrong. Message not sent.');
+      console.log(error);
+    });
   }
 
   const reset = () => {

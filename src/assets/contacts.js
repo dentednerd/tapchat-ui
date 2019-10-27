@@ -15,7 +15,7 @@ export default [
 	},
 	{
 		name: "Joey",
-		number: "789",
+		number: "07791351136",
 		avatar: blackwidow
 	}
 ]
