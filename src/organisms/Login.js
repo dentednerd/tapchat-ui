@@ -9,7 +9,9 @@ const useStyles = makeStyles({
 	input: {
 		fontFamily: "OpenDyslexic",
 		fontSize: "2rem",
-		width: "6rem"
+		width: "6rem",
+		backgroundColor: "#b3efff",
+		borderRadius: "0.25rem"
 	},
   button: {
 		height: "3rem",

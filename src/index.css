@@ -45,7 +45,7 @@ section.board {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background:  #333;
+    background:  #334;
     color: white;
   }
 
@@ -55,9 +55,5 @@ section.board {
 
   section.message {
     box-shadow: none;
-  }
-  
-  input {
-    color: #fff;
   }
 }
