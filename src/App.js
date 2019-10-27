@@ -126,7 +126,6 @@ function App() {
           horizontal: 'left',
         }}
         open={sent}
-        autoHideDuration={6000}
         ContentProps={{
           'aria-describedby': 'message-id',
         }}

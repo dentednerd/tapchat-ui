@@ -23,7 +23,8 @@ const useStyles = makeStyles({
 		padding: "0.5rem",
 		marginRight: "2rem",
 		marginBottom: "1rem",
-		backgroundColor: "#fff"
+		backgroundColor: "#fff",
+		color: "#000"
 	},
 	message: {
 		height: "2rem",
@@ -34,6 +35,7 @@ const useStyles = makeStyles({
 		marginRight: "2rem",
 		marginBottom: "1rem",
 		backgroundColor: "#fff",
+		color: "#000"
 	},
   button: {
 		height: "3rem",

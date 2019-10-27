@@ -42,3 +42,22 @@ section.board {
     margin-top: 8rem;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background:  #333;
+    color: white;
+  }
+
+  h1 {
+    color:#b3efff;
+  }
+
+  section.message {
+    box-shadow: none;
+  }
+  
+  input {
+    color: #fff;
+  }
+}
